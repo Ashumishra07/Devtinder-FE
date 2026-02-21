@@ -10,10 +10,11 @@
 -Create browserrouter > Routes > route=/ Body > Routechildern
 -Create an Outlet in your Body Component.
 -Create a footer.
-
-
-
-
+-Create a login Page
+_Install axios
+-CORS - install cors in backend => add middleware to with configurations: origin, credentials: true
+-Whenever you'are making an api call so pass axios => { withCredentials : true}
+- install redux toolkit 
 
 
 
