@@ -20,6 +20,10 @@ _Install axios
 -login and see if your data is coming properly in the store
 -navbar should update as soon as user login in
 -Refactor our code to add constrants file + create a compoments folder
+-You should not be access to other routes without login
+-If token is not present , redirect user to login page
+-Logout
+-Profile
 
 
 Body
