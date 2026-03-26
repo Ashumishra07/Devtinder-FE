@@ -7,8 +7,8 @@ import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
-import Landing from "./components/landing";
-
+import Landing from "./components/landing";  
+// get
 
 function App() {
   return (

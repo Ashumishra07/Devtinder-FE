@@ -305,6 +305,10 @@ const testimonials = [
     name: "Sneha",
     text: "Built 3 projects through DevTinder 🔥",
   },
+  {
+    name: "Rohit",
+    text: "My network grew by 200+ developers in 2 months! 🤝",
+  },
 ];
 
 const Landing = () => {
