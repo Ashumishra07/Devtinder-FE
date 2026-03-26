@@ -320,6 +320,7 @@ const Frontlanding = () => {
     setIndex((prev) => (prev + 1) % developers.length);
   };
 
+
   return (
     <div className="min-h-screen text-white relative overflow-hidden">
 
@@ -337,12 +338,12 @@ const Frontlanding = () => {
       <nav className="relative z-10 flex justify-between px-10 py-5 backdrop-blur-md bg-white/10">
         <h1 className="text-2xl text-blue-400 font-bold">DevTinder</h1>
 
-        <button
-          onClick={() => setShowModal(true)}
+        <Link
+           to="/login"
           className="bg-blue-500 px-4 py-2 rounded-lg"
         >
           Login / Signup
-        </button>
+        </Link>
       </nav>
 
       {/* 🚀 HERO */}
@@ -359,12 +360,12 @@ const Frontlanding = () => {
           Meet, collaborate and build projects 🚀
         </p>
 
-        <button
-          onClick={() => setShowModal(true)}
+        <Link 
+            to="/login"
           className="mt-6 bg-blue-500 px-6 py-3 rounded-xl"
         >
           Get Started
-        </button>
+        </Link>
       </motion.div>
 
       {/* 🔥 CUSTOM TINDER SWIPE */}
@@ -428,37 +429,6 @@ const Frontlanding = () => {
           ))}
         </div>
       </div>
-
-      {/* 🔐 LOGIN MODAL */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50">
-          <div className="bg-gray-900 p-8 rounded-xl w-96">
-            <h2 className="text-2xl mb-4">Login / Signup</h2>
-
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full mb-3 p-2 rounded bg-gray-800"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="w-full mb-3 p-2 rounded bg-gray-800"
-            />
-
-            <button className="w-full bg-blue-500 py-2 rounded mb-3">
-              Continue
-            </button>
-
-            <button
-              onClick={() => setShowModal(false)}
-              className="text-gray-400 text-sm"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* FOOTER */}
       <div className="relative z-10 text-center mt-20 py-6 text-gray-400">
