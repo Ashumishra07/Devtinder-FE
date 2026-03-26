@@ -2,7 +2,7 @@
 // import { useNavigate } from "react-router-dom";
 // import { motion } from "framer-motion";
 
-// const Landing = () => {
+// const Frontlanding = () => {
 //   const navigate = useNavigate();
 
 //   return (
@@ -126,7 +126,7 @@
 //   );
 // };
 
-// export default Landing;
+// export default Frontlanding;
 
 
 
@@ -136,7 +136,7 @@
 // import { useNavigate } from "react-router-dom";
 // import { motion } from "framer-motion";
 
-// const Landing = () => {
+// const Frontlanding = () => {
 //   const navigate = useNavigate();
 
 //   return (
@@ -280,7 +280,7 @@
 //   );
 // };
 
-// export default Landing;
+// export default Frontlanding;
 
 
 
@@ -311,7 +311,7 @@ const testimonials = [
   },
 ];
 
-const Landing = () => {
+const Frontlanding = () => {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -468,4 +468,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Frontlanding;

@@ -7,7 +7,7 @@ import appStore from "./utils/appStore";
 import Feed from "./components/Feed";
 import Connections from "./components/Connections";
 import Requests from "./components/Requests";
-import Landing from "./components/landing";  
+import Frontlanding from "./components/Frontlanding";
 // get
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <Provider store={appStore}>
         <BrowserRouter basename="/">
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<Frontlanding />} />
             <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
