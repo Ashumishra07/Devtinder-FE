@@ -17,25 +17,23 @@ const Body = () => {
   const fetchUser = async () => {
     if (userData) return;
     try {
-      const res = await axios.get(BASE_URL + "/profile-view ",{} ,{
+      const res = await axios.get(BASE_URL + "/profile-view", {}, {
         withCredentials: true
       });
 
       dispatch(addUser(res.data));
 
     } catch (err) {
-      if (err.status === 401) {
+      console.error("Error fetching user:", err);
+      if (err.res?.status === 401) {
         navigate("/login");
       }
-      console.error("Error fetching user:", err);
     }
+  };
+  useEffect(() => {
+    fetchUser();
 
-    useEffect(() => {
-
-      fetchUser();
-
-    }, []);
-  }
+  }, []);
 
   return (
     <div>
@@ -47,3 +45,4 @@ const Body = () => {
 }
 
 export default Body
+
