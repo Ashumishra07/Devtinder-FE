@@ -1,3 +1,158 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+
+const developers = [
+  { name: "Ashutosh", skill: "MERN Stack Dev" },
+  { name: "Rahul", skill: "AI/ML Engineer" },
+  { name: "Priya", skill: "Frontend Developer" },
+];
+
+const testimonials = [
+  {
+    name: "Aman",
+    text: "Found an amazing teammate for my startup 🚀",
+  },
+  {
+    name: "Sneha",
+    text: "Built 3 projects through DevTinder 🔥",
+  },
+  {
+    name: "Rohit",
+    text: "My network grew by 200+ developers in 2 months! 🤝",
+  },
+];
+
+const Frontlanding = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  // 👉 Swipe handler
+  const handleSwipe = (dir) => {
+    setIndex((prev) => (prev + 1) % developers.length);
+  };
+
+
+  return (
+    <div className="min-h-screen text-white relative overflow-hidden">
+
+      {/* 🌌 BACKGROUND */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+          className="w-full h-full object-cover opacity-30"
+          alt="bg"
+        />
+        <div className="absolute inset-0 bg-black/70"></div>
+      </div>
+
+      {/* 🔥 NAVBAR */}
+      <nav className="relative z-10 flex justify-between px-10 py-5 backdrop-blur-md bg-white/10">
+        <h1 className="text-2xl text-blue-400 font-bold">DevTinder</h1>
+
+        <Link
+           to="/login"
+          className="bg-blue-500 px-4 py-2 rounded-lg"
+        >
+          Login / Signup
+        </Link>
+      </nav>
+
+      {/* 🚀 HERO */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="relative z-10 text-center mt-24 px-6"
+      >
+        <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+          Where Developers Connect 🤝
+        </h1>
+
+        <p className="mt-4 text-gray-300">
+          Meet, collaborate and build projects 🚀
+        </p>
+
+        <Link 
+            to="/login"
+          className="mt-6 bg-blue-500 px-6 py-3 rounded-xl"
+        >
+          Get Started
+        </Link>
+      </motion.div>
+
+      {/* 🔥 CUSTOM TINDER SWIPE */}
+      <div className="relative z-10 mt-20 flex flex-col items-center">
+        <motion.div
+          key={index}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          onDragEnd={(e, info) => {
+            if (info.offset.x > 120) handleSwipe("right");
+            else if (info.offset.x < -120) handleSwipe("left");
+          }}
+          className="w-80 h-96 bg-white/10 backdrop-blur-lg p-6 rounded-xl shadow-xl flex flex-col justify-center items-center cursor-grab active:cursor-grabbing"
+        >
+          <h2 className="text-2xl text-blue-400">
+            {developers[index].name}
+          </h2>
+          <p className="text-gray-300">
+            {developers[index].skill}
+          </p>
+        </motion.div>
+
+        <p className="mt-4 text-gray-400 text-sm">
+          ← Swipe left | Swipe right →
+        </p>
+      </div>
+
+      {/* ✨ FEATURES */}
+      <div className="relative z-10 mt-32 px-10 grid md:grid-cols-3 gap-8">
+        {["Find Developers", "Collaborate", "Grow Network"].map((title, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2 }}
+            className="p-6 bg-white/10 backdrop-blur-lg rounded-xl"
+          >
+            <h2 className="text-xl text-blue-400">{title}</h2>
+            <p className="text-gray-300 mt-2">
+              Build connections and grow faster 🚀
+            </p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* 💬 TESTIMONIALS */}
+      <div className="relative z-10 mt-32 px-10 text-center">
+        <h2 className="text-3xl font-bold mb-10">What Developers Say 💬</h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className="bg-white/10 p-6 rounded-xl"
+            >
+              <p className="text-gray-300">"{t.text}"</p>
+              <h4 className="mt-4 text-blue-400">- {t.name}</h4>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <div className="relative z-10 text-center mt-20 py-6 text-gray-400">
+        © 2026 DevTinder • Built by Ashutosh 🚀
+      </div>
+    </div>
+  );
+};
+
+export default Frontlanding;
+
 // import React from "react";
 // import { useNavigate } from "react-router-dom";
 // import { motion } from "framer-motion";
@@ -287,157 +442,3 @@
 
 
 
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-
-
-const developers = [
-  { name: "Ashutosh", skill: "MERN Stack Dev" },
-  { name: "Rahul", skill: "AI/ML Engineer" },
-  { name: "Priya", skill: "Frontend Developer" },
-];
-
-const testimonials = [
-  {
-    name: "Aman",
-    text: "Found an amazing teammate for my startup 🚀",
-  },
-  {
-    name: "Sneha",
-    text: "Built 3 projects through DevTinder 🔥",
-  },
-  {
-    name: "Rohit",
-    text: "My network grew by 200+ developers in 2 months! 🤝",
-  },
-];
-
-const Frontlanding = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [index, setIndex] = useState(0);
-
-  // 👉 Swipe handler
-  const handleSwipe = (dir) => {
-    setIndex((prev) => (prev + 1) % developers.length);
-  };
-
-
-  return (
-    <div className="min-h-screen text-white relative overflow-hidden">
-
-      {/* 🌌 BACKGROUND */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475"
-          className="w-full h-full object-cover opacity-30"
-          alt="bg"
-        />
-        <div className="absolute inset-0 bg-black/70"></div>
-      </div>
-
-      {/* 🔥 NAVBAR */}
-      <nav className="relative z-10 flex justify-between px-10 py-5 backdrop-blur-md bg-white/10">
-        <h1 className="text-2xl text-blue-400 font-bold">DevTinder</h1>
-
-        <Link
-           to="/login"
-          className="bg-blue-500 px-4 py-2 rounded-lg"
-        >
-          Login / Signup
-        </Link>
-      </nav>
-
-      {/* 🚀 HERO */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        className="relative z-10 text-center mt-24 px-6"
-      >
-        <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-          Where Developers Connect 🤝
-        </h1>
-
-        <p className="mt-4 text-gray-300">
-          Meet, collaborate and build projects 🚀
-        </p>
-
-        <Link 
-            to="/login"
-          className="mt-6 bg-blue-500 px-6 py-3 rounded-xl"
-        >
-          Get Started
-        </Link>
-      </motion.div>
-
-      {/* 🔥 CUSTOM TINDER SWIPE */}
-      <div className="relative z-10 mt-20 flex flex-col items-center">
-        <motion.div
-          key={index}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          onDragEnd={(e, info) => {
-            if (info.offset.x > 120) handleSwipe("right");
-            else if (info.offset.x < -120) handleSwipe("left");
-          }}
-          className="w-80 h-96 bg-white/10 backdrop-blur-lg p-6 rounded-xl shadow-xl flex flex-col justify-center items-center cursor-grab active:cursor-grabbing"
-        >
-          <h2 className="text-2xl text-blue-400">
-            {developers[index].name}
-          </h2>
-          <p className="text-gray-300">
-            {developers[index].skill}
-          </p>
-        </motion.div>
-
-        <p className="mt-4 text-gray-400 text-sm">
-          ← Swipe left | Swipe right →
-        </p>
-      </div>
-
-      {/* ✨ FEATURES */}
-      <div className="relative z-10 mt-32 px-10 grid md:grid-cols-3 gap-8">
-        {["Find Developers", "Collaborate", "Grow Network"].map((title, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.2 }}
-            className="p-6 bg-white/10 backdrop-blur-lg rounded-xl"
-          >
-            <h2 className="text-xl text-blue-400">{title}</h2>
-            <p className="text-gray-300 mt-2">
-              Build connections and grow faster 🚀
-            </p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* 💬 TESTIMONIALS */}
-      <div className="relative z-10 mt-32 px-10 text-center">
-        <h2 className="text-3xl font-bold mb-10">What Developers Say 💬</h2>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="bg-white/10 p-6 rounded-xl"
-            >
-              <p className="text-gray-300">"{t.text}"</p>
-              <h4 className="mt-4 text-blue-400">- {t.name}</h4>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* FOOTER */}
-      <div className="relative z-10 text-center mt-20 py-6 text-gray-400">
-        © 2026 DevTinder • Built by Ashutosh 🚀
-      </div>
-    </div>
-  );
-};
-
-export default Frontlanding;
