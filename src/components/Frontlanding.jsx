@@ -22,6 +22,10 @@ const testimonials = [
     name: "Rohit",
     text: "My network grew by 200+ developers in 2 months! 🤝",
   },
+  {
+    name: "Anjali",
+    text: "Collaborated on an open-source project and got hired! 💼",
+  }
 ];
 
 const Frontlanding = () => {
