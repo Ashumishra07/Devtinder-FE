@@ -30,7 +30,7 @@ const Login = () => {
       return navigate("/feed")
     }
     catch (err) {
-      setError("Invalid email or password");
+      setError(err?.response?.data || "Invalid email or password");
     }
   };
 

@@ -2,13 +2,16 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addConnections } from "../utils/connectionSlice";
+import { Link } from "react-router-dom";
 
 
 
 const Connections = () => {
   const connections = useSelector((store) => store.connections);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const fetchConnections = async () => {
     try {
       const res = await axios.get(BASE_URL + "/user/connections", {
@@ -59,7 +62,9 @@ const Connections = () => {
               {age && gender && <p>{age + ", " + gender}</p>}
               <p>{about}</p>
             </div>
-           
+            <Link to={"/chat/" + _id}>
+              <button className="btn btn-primary">Chat</button>
+            </Link>
           </div>
         );
       })}
