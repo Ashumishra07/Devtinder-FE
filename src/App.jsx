@@ -10,6 +10,7 @@ import Requests from "./components/Requests";
 import Frontlanding from "./components/Frontlanding";
 import Premium from "./components/Premium";
 import Chat from "./components/Chat";
+import EditProfile from "./components/EditProfile";
 // get
 
 function App() {

@@ -3,6 +3,7 @@ import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests, removeRequest } from "../utils/requestSlice";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'; 
 
 const Requests = () => {
   const requests = useSelector((store) => store.requests);
@@ -36,9 +37,22 @@ const Requests = () => {
 
   if (!requests) return;
 
-  if (requests.length === 0)
-    return <h1 className="flex justify-center my-10"> No Requests Found</h1>;
-
+  if (requests.length === 0){
+    return (
+        <div className="flex flex-col items-center justify-center gap-4 min-h-[50vh]">
+            <h1 className="text-center text-2xl font-bold text-black">
+                No Requests Found
+            </h1>
+            <Link 
+                to="/feed" 
+                className="px-16 py-5 bg-[#ff2a85] text-white text-xl font-semibold rounded-xl hover:bg-[#e01f72] shadow-[0_4px_20px_rgba(255,42,133,0.4)] transition-all duration-200 inline-block text-center"
+            >
+                Back to Feed
+            </Link>
+            </div>
+            )
+  }
+     
   return (
     <div className="text-center my-10">
       <h1 className="text-bold text-white text-3xl">Connection Requests</h1>

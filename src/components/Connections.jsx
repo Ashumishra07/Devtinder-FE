@@ -33,7 +33,22 @@ const Connections = () => {
 
   if (!connections) return <h1>Loading...</h1>;
 
-  if (connections.length === 0) return <h1> No Connections Found</h1>;
+  if (connections.length === 0) {
+    // return <h1 className="text-center text-2xl font-bold text-black "> No Connections Found</h1>
+     return (
+        <div className="flex flex-col items-center justify-center gap-4 min-h-[50vh]">
+            <h1 className="text-center text-3xl font-bold text-black">
+                No Connections Found
+            </h1>
+            <Link 
+                to="/feed" 
+                className="px-16 py-5 bg-[#ff2a85] text-white text-xl font-semibold rounded-xl hover:bg-[#e01f72] shadow-[0_4px_20px_rgba(255,42,133,0.4)] transition-all duration-200 inline-block text-center"
+            >
+                Find connections
+            </Link>
+        </div>
+    );
+  };
 
   return (
     <div className="text-center my-10">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 
 const developers = [
@@ -53,7 +54,7 @@ const Frontlanding = () => {
 
       {/* 🔥 NAVBAR */}
       <nav className="relative z-10 flex justify-between px-10 py-5 backdrop-blur-md bg-white/10">
-        <h1 className="text-2xl text-blue-400 font-bold">DevTinder</h1>
+        <h1 className="text-2xl text-blue-400 font-bold">👩‍💻DevTinder</h1>
 
         <Link
            to="/login"
@@ -70,13 +71,13 @@ const Frontlanding = () => {
         className="relative z-10 text-center mt-24 px-6"
       >
         <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-          Where Developers Connect 🤝
+          DevTinder-Where Developers Connects 
         </h1>
 
         <p className="mt-4 text-gray-300">
           Meet, collaborate and build projects 🚀
         </p>
-
+        <br />
         <Link 
             to="/login"
           className="mt-6 bg-blue-500 px-6 py-3 rounded-xl"
@@ -148,10 +149,12 @@ const Frontlanding = () => {
       </div>
 
       {/* FOOTER */}
+
       <div className="relative z-10 text-center mt-20 py-6 text-gray-400">
         © 2026 DevTinder • Built by Ashutosh 🚀
       </div>
     </div>
+
   );
 };
 
